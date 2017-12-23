@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全部试题</title>
+</head>
+<body>
+<form action="/answer/" method="get">
+    <table border="1">
+        <tr>
+            <th width="400">题目</th>
+            <th width="400">选项</th>
+        </tr>
+        {% for foo in list %}
+            <tr>
+                <td>
+                    {{ foo.title }}
+                </td>
+                <td>
+                    {% for op in foo.options %}
+                        <input type="radio" name="{{ foo.id }}" value="{{ op }}">{{ op }}
+                    {% endfor %}
+
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>
